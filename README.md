@@ -8,10 +8,63 @@ I was assigned to work for two weeks on a Live Project, where a DevOps team work
 <div>  
 <h2>Back End Story</h2>
 </div>
+
+<div>
+	<h3>Linking Display to Database</h3>
+
+<div>My first task was to sort the archive by past, current and future productions. To do this automatically as not have to manually as each season changes, I linked the archive to the database listing all the productions.</div>
+
+<div><strong>View: Archive.cshtml</strong></div>
+
+    //Current Productions Referencing Database
+    <div id="current-productions">
+    <div class="card-deck bg-black">
+	@{
+	var currentSettings = AdminSettingsReader.CurrentSettings(); // Grabs AdminSettings JSON
+    int currentSeason = currentSettings.current_season; // Initialize currentSeason and set using "current_season" from JSON
+	
+	foreach (var item in Model)
+        {
+            if (item.Season == currentSeason)
+            {
+                <div class="card bg-black">
+                    @{
+                    if (item.DefaultPhoto != null)
+                    {
+                        <a href="@Url.Action("Details", "Productions", new { id = item.ProductionId })">
+                            <img class="card-img-top production-index-img mt-5 bg-black" src="@Url.Action("DisplayPhoto", "Photo", new { id = item.DefaultPhoto.PhotoId })" alt="@Url.Action(item.Title)"}></a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Details", "Productions", new { id = item.ProductionId })">
+                            <img class="card-img-top production-index-img mt-5 bg-black" src="~/Content/Images/Unavailable.png" alt="@Url.Action(item.Title)"></a>
+                    }
+                    }
+                    <div class="card-body production-index-card-inner justify-content-center">
+                        <h5 class="card-title">
+                            @item.Title
+                            <span class="badge badge-pill badge-primary">Season: @item.Season</span>
+                        </h5>
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                    <div class="card-footer align-bottom">
+                        <button type="button" class="btn btn-block btn-primary" disabled>Get Tickets</button>
+                    </div>
+                </div>
+            }
+        }
+        }
+    </div>
+</div>
+
+I repeated this process for linking the database to the production listings for the past and future productions.
+</div>
+
 <h3>Add PhotoId property to CastMember class</h3>
 
 My mission was to add the property ‘PhotoId’ to CastMember class to show the cast member’s photos and get it to function properly.
 The first thing to do was to add the property to the ‘CastMember’ class and table in the database.
+
 <div><strong>Model: CastMember.cs</strong>
 
         public class CastMember

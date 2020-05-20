@@ -1,20 +1,17 @@
 # LiveProject
 Live Project I worked on at The Tech Academy. 
-<div>
-<h2>Introduction</h2>
-I was assigned to work for two weeks on a Live Project, where a DevOps team worked on a MVC Web Application for two weeks. The project was already well underway, so this was a great chance for me to experience studying, adding to, and cleaning up code that people had previously worked on. 
-</div>
 
-<div>  
-<h2>Back End Story</h2>
-</div>
+##Introduction
+<div>I was assigned to work for two weeks on a Live Project, where a DevOps team worked on a MVC Web Application for two weeks. The project was already well underway, so this was a great chance for me to experience studying, adding to, and cleaning up code that people had previously worked on.</div>
 
-<div>
-	<h3>Linking Display to Database</h3>
 
-<div>My first task was to sort the archive by past, current and future productions. To do this automatically as not have to manually as each season changes, I linked the archive to the database listing all the productions.</div>
+##Back End Story
 
-<div><strong>View: Archive.cshtml</strong></div>
+###Linking Display to Database
+
+My first task was to sort the archive by past, current and future productions. To do this automatically as not have to manually as each season changes, I linked the archive to the database listing all the productions.
+
+**View: Archive.cshtml**
 
     //Current Productions Referencing Database
     <div id="current-productions">
@@ -55,17 +52,16 @@ I was assigned to work for two weeks on a Live Project, where a DevOps team work
         }
         }
     </div>
-</div>
+    </div>
 
 I repeated this process for linking the database to the production listings for the past and future productions.
-</div>
 
-<h3>Add PhotoId property to CastMember class</h3>
+###Add PhotoId property to CastMember class
 
 My mission was to add the property ‘PhotoId’ to CastMember class to show the cast member’s photos and get it to function properly.
 The first thing to do was to add the property to the ‘CastMember’ class and table in the database.
 
-<div><strong>Model: CastMember.cs</strong>
+**Model: CastMember.cs**
 
         public class CastMember
         {
@@ -78,9 +74,8 @@ The first thing to do was to add the property to the ‘CastMember’ class and 
             public string CastMemberPersonID { get; set; }  // user ID for cast member
             public int? DebutYear { get; set; }             // first year that cast member joins theater
         }
-</div>
 
-<div>
+
 Next, I had to make sure that the CastMembersController would create the photo being uploaded by the user. So I pulled the ‘CreatePhoto’ method from the PhotoController that saves the photo to the database:
 
         public static int CreatePhoto(HttpPostedFileBase file, string title)
@@ -99,11 +94,9 @@ Next, I had to make sure that the CastMembersController would create the photo b
                 return photo.PhotoId;
             }
         }
-</div>
 
-<div>
 and plugged it into:
-<strong>CastMembersController.cs</strong>
+**CastMembersController.cs
 
         public ActionResult Create([Bind(Include = "CastMemberID,Name,Bio,Photo,MainRole,CurrentMember,CastMemberPersonId,DebutYear")] CastMember castMember, HttpPostedFileBase file)
         {
@@ -124,15 +117,13 @@ and plugged it into:
             }
             return View(castMember);
         }
-</div>
 
-<div>
-<h2>Front End Story</h2>
-</div>
 
-<div>
-I also needed to have the user be able to interact with this new PhotoId property and preferably be able to preview their photo before they uploaded it, so I applied JQuery.
-<strong>View: Create.cshtml</strong>
+##Front End Story
+
+<div>I also needed to have the user be able to interact with this new PhotoId property and preferably be able to preview their photo before they uploaded it, so I applied JQuery.</div>
+
+**View: Create.cshtml**
 
     @using (Html.BeginForm("Create", "CastMembers", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
@@ -168,8 +159,7 @@ I also needed to have the user be able to interact with this new PhotoId propert
             output.src = URL.createObjectURL(event.target.files[0]);
         };
     </script>
-</div>
-<div>
+
 I applied this PhotoId property to the rest of the CRUD operations and web application.
-</div>
+
 

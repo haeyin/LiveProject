@@ -1,13 +1,13 @@
 # LiveProject
 Live Project I worked on at The Tech Academy. 
 
-##Introduction
+## Introduction
 <div>I was assigned to work for two weeks on a Live Project, where a DevOps team worked on a MVC Web Application for two weeks. The project was already well underway, so this was a great chance for me to experience studying, adding to, and cleaning up code that people had previously worked on.</div>
 
 
-##Back End Story
+## Back End Story
 
-###Linking Display to Database
+### Linking Display to Database
 
 My first task was to sort the archive by past, current and future productions. To do this automatically as not have to manually as each season changes, I linked the archive to the database listing all the productions.
 
@@ -56,7 +56,7 @@ My first task was to sort the archive by past, current and future productions. T
 
 I repeated this process for linking the database to the production listings for the past and future productions.
 
-###Add PhotoId property to CastMember class
+### Add PhotoId property to CastMember class
 
 My mission was to add the property ‘PhotoId’ to CastMember class to show the cast member’s photos and get it to function properly.
 The first thing to do was to add the property to the ‘CastMember’ class and table in the database.
@@ -119,8 +119,9 @@ and plugged it into:
         }
 
 
-##Front End Story
+## Front End Story
 
+### Interacting with Images
 <div>I also needed to have the user be able to interact with this new PhotoId property and preferably be able to preview their photo before they uploaded it, so I applied JQuery.</div>
 
 **View: Create.cshtml**

@@ -1,8 +1,16 @@
 # LiveProject
 Live Project I worked on at The Tech Academy. 
 
+## Table of Contents
+[Introduction](https://github.com/haeyin/LiveProject/blob/master/README.md##Introduction)
+
+[Back End Story](https://github.com/haeyin/LiveProject/blob/master/README.md##Back_End_Story)
+
+
+
 ## Introduction
-<div>I was assigned to work for two weeks on a Live Project, where a DevOps team worked on a MVC Web Application for two weeks. The project was already well underway, so this was a great chance for me to experience studying, adding to, and cleaning up code that people had previously worked on.</div>
+
+I was assigned to work for two weeks on a Live Project, where a DevOps team worked on a MVC Web Application for two weeks. The project was already well underway, so this was a great chance for me to experience studying, adding to, and cleaning up code that people had previously worked on.
 
 
 ## Back End Story
@@ -122,7 +130,8 @@ and plugged it into:
 ## Front End Story
 
 ### Interacting with Images
-<div>I also needed to have the user be able to interact with this new PhotoId property and preferably be able to preview their photo before they uploaded it, so I applied JQuery.</div>
+
+I also needed to have the user be able to interact with this new PhotoId property and preferably be able to preview their photo before they uploaded it, so I applied JQuery.
 
 **View: Create.cshtml**
 
